@@ -1,0 +1,36 @@
+<h1>Update Blog</h1>
+
+<div class="container my-4">
+  <form action="/blogs/updatepost" method="post">
+    <input type="text" value="<%= post._id %>" name="id" />
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        placeholder="title"
+        value="<%= post.title %>"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Snippet</label>
+      <input
+        type="text"
+        name="snippet"
+        class="form-control"
+        placeholder="snippet"
+        value="<%= post.snippet %> "
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Body</label>
+      <textarea name="body" class="form-control" rows="3">
+<%=post.body%></textarea
+      >
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-success">Add</button>
+    </div>
+  </form>
+</div>

@@ -14,7 +14,7 @@ mongoose
   .connect(dbURI)
   .then(() => app.listen(3000))
   .catch((err) => {
-    res.redirect("/404");
+    res.redirect("/blogs");
   });
 
 app.use(expressLayouts);

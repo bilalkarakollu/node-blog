@@ -13,7 +13,9 @@ const dbURI =
 mongoose
   .connect(dbURI)
   .then(() => app.listen(3000))
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    res.redirect("/404");
+  });
 
 app.use(expressLayouts);
 app.set("view engine", "ejs");

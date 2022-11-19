@@ -7,7 +7,7 @@ const blogRoutes = require("./app/routes/blogRoutes");
 const app = express();
 // connect to mongodb
 // xcPFQMFzMUhTjYCY
-
+/*
 const dbURI =
   "mongodb+srv://bilalkarakollu:xcPFQMFzMUhTjYCY@cluster0.ueolyde.mongodb.net/?retryWrites=true&w=majority";
 mongoose
@@ -16,7 +16,8 @@ mongoose
   .catch((err) => {
     res.redirect("/404");
   });
-
+*/
+app.listen(3000);
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.set("views", "./app/views");

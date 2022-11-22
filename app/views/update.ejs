@@ -1,8 +1,6 @@
-<h1>Update Blog</h1>
-
-<div class="container my-4">
+<div class="container my-4 my-4">
   <form action="/blogs/updatepost" method="post">
-    <input type="text" value="<%= post._id %>" name="id" />
+    <input hidden type="text" value="<%= post._id %>" name="id" />
     <div class="mb-3">
       <label class="form-label">Title</label>
       <input
@@ -25,12 +23,12 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Body</label>
-      <textarea name="body" class="form-control" rows="3">
+      <textarea name="body" class="form-control" rows="5">
 <%=post.body%></textarea
       >
     </div>
-    <div class="mb-3">
-      <button class="btn btn-success">Add</button>
+    <div class="mb-3 d-flex justify-content-end">
+      <button class="btn btn-success fs-5"><i class="bi bi-plus"></i></button>
     </div>
   </form>
 </div>

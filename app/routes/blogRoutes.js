@@ -1,67 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const blogController = require("../controller/blogController");
 
-const Blog = require("../models/blog");
+router.get("/", blogController.blog_index);
 
-router.get("/", (req, res) => {
-  Blog.find()
-    .sort({ createdAt: -1 })
-    .then((result) => {
-      res.render("blogs", { title: "All Blogs", blogs: result });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.post("/", blogController.blog_create);
 
-router.post("/", (req, res) => {
-  const blog = new Blog(req.body);
+router.post("/updatepost/", blogController.blog_update_page);
 
-  blog.save().then((result) => {
-    res.redirect("/blogs");
-  });
-});
+router.get("/create", blogController.blog_create_page);
 
-router.post("/updatepost/", (req, res) => {
-  const { id, title, snippet, body } = req.body;
-  Blog.findByIdAndUpdate(id, {
-    title: title,
-    snippet: snippet,
-    body: body,
-  })
-    .then((result) => {
-      res.redirect("/blogs");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.get("/update/:id", blogController.blog_update);
 
-router.get("/create", (req, res) => {
-  res.render("create", { title: "Create Blog" });
-});
+router.get("/:id", blogController.blog_detail);
 
-router.get("/update/:id", (req, res) => {
-  const { id } = req.params;
-  Blog.findById(id)
-    .then((result) => {
-      res.render("update", { title: "Update Blog", post: result });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-
-  Blog.findById(id)
-    .then((result) => {
-      res.render("details", { title: "Post Detail", post: result });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.delete("/:id", blogController.blog_delete);
 
 module.exports = router;

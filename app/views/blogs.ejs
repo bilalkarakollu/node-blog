@@ -1,21 +1,5 @@
 <div class="my-3">
-  <h4 class="text-center">All Blogs</h4>
+  <h4 class="text-center fw-bold">All Blogs</h4>
 </div>
 
-<div class="container">
-  <% if (!blogs.length > 0) { %>
-  <h2>data not found</h2>
-  <% } %>
-  <div class="row mt-5">
-    <% for (let blog of blogs) { %>
-    <div class="col-12 mb-2">
-      <a href="/blogs/<%= blog._id %>" class="card text-decoration-none text-black py-4">
-        <div class="card-body">
-          <h5 class="card-title"><%= blog.title %></h5>
-          <p class="card-text"><%= blog.body %></p>
-        </div>
-      </a>
-    </div>
-    <% } %>
-  </div>
-</div>
+<div class="container"><%- include('./partials/blog', {blogs: blogs}) %></div>

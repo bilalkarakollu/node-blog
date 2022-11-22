@@ -1,0 +1,18 @@
+<% if (!blogs.length > 0) { %>
+<h2>data not found</h2>
+<% } %>
+<div class="row mt-5">
+  <% for (let blog of blogs) { %>
+  <div class="col-12 mb-4">
+    <a
+      href="/blogs/<%= blog._id %>"
+      class="card text-decoration-none text-black py-4 rounded-4 shadow-sm"
+    >
+      <div class="card-body">
+        <h5 class="card-title fw-bold"><%= blog.title %></h5>
+        <p class="card-text"><%= blog.body.slice(0, 350)+"..."; %></p>
+      </div>
+    </a>
+  </div>
+  <% } %>
+</div>
